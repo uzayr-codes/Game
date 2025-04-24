@@ -9,7 +9,6 @@ document.addEventListener("DOMContentLoaded", async () => {
     localStorage.setItem("randomNumbers", JSON.stringify(data));
     correctNumber = data[Math.floor(Math.random() * data.length)];
     console.log("Correct number:", correctNumber); // debug only
-
     const input = document.getElementById("guessInput");
     const button = document.getElementById("guessBtn");
 
