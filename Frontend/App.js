@@ -2,24 +2,19 @@ let correctNumber;
 
 document.addEventListener("DOMContentLoaded", async () => {
   try {
-    const response = await fetch("http://localhost:5000/get-numbers");
+    const response = await fetch("/get-numbers");
     const data = await response.json();
-    
+
     localStorage.setItem("randomNumbers", JSON.stringify(data));
     correctNumber = data[Math.floor(Math.random() * data.length)];
-    console.log("Correct number:", correctNumber); // for testing
+    console.log("Correct number:", correctNumber); // debug only
 
     const input = document.getElementById("guessInput");
     const button = document.getElementById("guessBtn");
 
-    // Handle Guess Button Click
     button.addEventListener("click", handleGuess);
-
-    // Handle Enter Key Press
     input.addEventListener("keypress", (event) => {
-      if (event.key === "Enter") {
-        handleGuess();
-      }
+      if (event.key === "Enter") handleGuess();
     });
 
   } catch (error) {
