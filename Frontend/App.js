@@ -2,7 +2,7 @@ let correctNumber;
 
 document.addEventListener("DOMContentLoaded", async () => {
   try {
-    const response = await fetch("/get-numbers");
+    const response = await fetch("https://gamebackend-iota.vercel.app/get-numbers");
     const data = await response.json();
 
     localStorage.setItem("randomNumbers", JSON.stringify(data));
